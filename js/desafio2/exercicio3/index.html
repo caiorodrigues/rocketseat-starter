@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Rocketseat starter - Javascript - Desafio 2 - Exercício 3</title>
+  </head>
+  <body>
+    <div id="app"></div>
+    <script>
+      var nomes = ["Diego", "Gabriel", "Lucas"];
+      var divApp = document.querySelector("#app");
+      var ulElement = document.createElement("ul");
+
+      divApp.appendChild(ulElement);
+
+      for (nome of nomes) {
+        console.log(nome);
+        ulElement.appendChild(createNewLi(nome));
+      }
+
+      function createNewLi(element) {
+        var textElement = document.createTextNode(element);
+
+        var liElement = document.createElement("li");
+        liElement.appendChild(textElement);
+
+        return liElement;
+      }
+    </script>
+  </body>
+</html>
+
+<!--
+
+  Correção c/ a Rocketseat
+-------------------------------------
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Exercício 03</title>
+</head>
+
+<body>
+  <ul></ul>
+
+  <script>
+    var nomes = ['Diego', 'Gabriel', 'Lucas'];
+    var listElement = document.querySelector('ul');
+    for (nome of nomes) {
+      var liElement = document.createElement('li');
+      var textElement = document.createTextNode(nome);
+      liElement.appendChild(textElement);
+      listElement.appendChild(liElement);
+    }
+  </script>
+</body>
+
+</html>
+
+-->

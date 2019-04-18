@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Rocketseat starter - Javascript - Desafio 2 - Exercício 1</title>
+  </head>
+  <body>
+    <button class="botao">Adicionar novo elemento</button>
+    <div id="app"></div>
+
+    <script>
+      var btnElement = document.querySelector("button.botao");
+
+      btnElement.onclick = function criarNovoElemento() {
+        var newElement = document.createElement("div");
+
+        newElement.style.width = "100px";
+        newElement.style.height = "100px";
+        newElement.style.backgroundColor = "#f00";
+
+        var containerElement = document.querySelector("#app");
+        containerElement.appendChild(newElement);
+      };
+    </script>
+  </body>
+</html>
