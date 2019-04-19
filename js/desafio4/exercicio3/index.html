@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+
+    <title>Rocketseat starter - Javascript - Desafio 4 - Exercício 3</title>
+  </head>
+  <body>
+    <input type="text" name="user" />
+    <button onclick="listRepos()">Buscar</button>
+    <div id="app">
+      <ul></ul>
+    </div>
+
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script>
+      var ulElement = document.querySelector("ul");
+      var inputName = document.querySelector("input[name=user]");
+
+      function renderRepos(repos) {
+        ulElement.innerHTML = "";
+
+        for (repo of repos) {
+          var textElement = document.createTextNode(repo.name);
+          var liElement = document.createElement("li");
+
+          liElement.appendChild(textElement);
+          ulElement.appendChild(liElement);
+        }
+      }
+
+      function renderLoading() {
+        ulElement.innerHTML = "";
+
+        var textElement = document.createTextNode("Carregando...");
+        var liLoadingElement = document.createElement("li");
+
+        liLoadingElement.appendChild(textElement);
+        ulElement.appendChild(liLoadingElement);
+      }
+
+      function renderError(error) {
+        ulElement.innerHTML = "";
+
+        var textElement = document.createTextNode(error);
+        var liErrorElement = document.createElement("li");
+
+        liErrorElement.style.color = "#F00";
+
+        liErrorElement.appendChild(textElement);
+        ulElement.appendChild(liErrorElement);
+      }
+
+      function listRepos() {
+        var user = inputName.value;
+        var url = "https://api.github.com/users/" + user + "/repos";
+
+        if (!user) return;
+
+        renderLoading();
+
+        axios
+          .get(url)
+          .then(function(response) {
+            renderRepos(response.data);
+          })
+          .catch(function(error) {
+            renderError(error);
+          });
+      }
+    </script>
+  </body>
+</html>

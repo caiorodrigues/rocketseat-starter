@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+
+    <title>Rocketseat starter - Javascript - Desafio 4 - Exercício 1</title>
+  </head>
+  <body>
+    <script>
+      function checaIdade(idade) {
+        return new Promise(function(resolve, reject) {
+          setTimeout(function() {
+            return idade >= 18 ? resolve() : reject();
+          }, 2000);
+        });
+      }
+
+      checaIdade(20)
+        .then(function() {
+          console.log("Maior que 18");
+        })
+        .catch(function() {
+          console.log("Menor de 18");
+        });
+    </script>
+  </body>
+</html>

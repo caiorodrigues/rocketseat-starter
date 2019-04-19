@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+
+    <title>Rocketseat starter - Javascript - Desafio 4 - Exercício 2</title>
+  </head>
+  <body>
+    <input type="text" name="user" />
+    <button onclick="listRepos()">Buscar</button>
+    <div id="app">
+      <ul></ul>
+    </div>
+
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script>
+      var ulElement = document.querySelector("ul");
+      var inputName = document.querySelector("input[name=user]");
+
+      function renderRepos(repos) {
+        for (repo of repos) {
+          var textElement = document.createTextNode(repo.name);
+          var liElement = document.createElement("li");
+
+          liElement.appendChild(textElement);
+          ulElement.appendChild(liElement);
+        }
+      }
+
+      function listRepos() {
+        var user = inputName.value;
+        var url = "https://api.github.com/users/" + user + "/repos";
+
+        if (!user) return;
+
+        axios.get(url).then(function(response) {
+          renderRepos(response.data);
+        });
+      }
+    </script>
+  </body>
+</html>
