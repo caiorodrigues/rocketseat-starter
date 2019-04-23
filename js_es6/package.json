@@ -1,0 +1,23 @@
+{
+  "name": "js_es6",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "@babel/cli": "^7.4.3",
+    "@babel/core": "^7.4.3",
+    "@babel/plugin-proposal-object-rest-spread": "^7.4.3",
+    "@babel/preset-env": "^7.4.3"
+  },
+  "scripts": {
+    "dev-classes": "babel ./classes/main.js -o ./classes/bundle.js -w",
+    "dev-const-let": "babel ./const_let/main.js -o ./const_let/bundle.js -w",
+    "dev-op-array": "babel ./operacoes_array/main.js -o ./operacoes_array/bundle.js -w",
+    "dev-arrows": "babel ./arrow_functions/main.js -o ./arrow_functions/bundle.js -w",
+    "dev-valores_padrao": "babel ./valores_padrao/main.js -o ./valores_padrao/bundle.js -w",
+    "dev-desestruturacao": "babel ./desestruturacao/main.js -o ./desestruturacao/bundle.js -w",
+    "dev-rest_spread": "babel ./rest_spread/main.js -o ./rest_spread/bundle.js -w",
+    "dev-template_literals": "babel ./template_literals/main.js -o ./template_literals/bundle.js -w",
+    "dev-obj_short_syntax": "babel ./object_short_syntax/main.js -o ./object_short_syntax/bundle.js -w"
+  }
+}
